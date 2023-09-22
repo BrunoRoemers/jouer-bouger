@@ -1,0 +1,6 @@
+{
+  "[astro]": {
+    // the astro formatter currently does not support formatting modifications-only on save
+    "editor.formatOnSaveMode": "file"
+  }
+}

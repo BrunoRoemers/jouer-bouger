@@ -1,20 +1,31 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import { getCollection, getEntry } from "astro:content";
+import Layout from "../layouts/Layout.astro";
 
-export function getStaticPaths() {
-  // TODO 1 to 30 => should get data from a MD/YML collection
-
-  return [
-    {params: {page: '001'}},
-    {params: {page: '002'}},
-    {params: {page: '003'}},
-  ];
+export async function getStaticPaths() {
+  const cards = await getCollection("cards");
+  return cards
+    .map((card) => card.id)
+    .map((slug) => ({ params: { page: slug } }));
 }
 
 const { page } = Astro.params;
+if (page === undefined) {
+  throw new Error("page param not provided");
+}
+
+const card = await getEntry("cards", page);
+if (card === undefined) {
+  throw new Error("could not find card with id TODO");
+}
+
+console.log(card);
 ---
+
 <Layout title="TODO">
   <main>
-    hello page {page}
+    <h1>{card.data.title}</h1>
+    <p>hello page {page}</p>
+    <p>video url: {card.data.videoUrl}</p>
   </main>
 </Layout>
