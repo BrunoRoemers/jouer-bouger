@@ -11,6 +11,7 @@ export default defineConfig({
       config: {
         backend: {
           name: "github",
+          auth_scope: "public_repo",
           branch: "main",
           repo: "brunoRoemers/jouer-bouger",
         },
