@@ -1,3 +1,9 @@
 [build]
   publish = "dist"
   command = "npm run build"
+
+[[redirects]]
+  from = "/"
+  to = "https://jouerbouger-manage.systeme.io/yffc"
+  status = 200
+  force = true
