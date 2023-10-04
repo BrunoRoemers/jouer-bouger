@@ -2,6 +2,9 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import decapCMS from "astro-netlify-cms";
 
+// TODO remove
+console.log('branch: ', process.env.PUBLIC_BRANCH)
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -12,7 +15,7 @@ export default defineConfig({
         backend: {
           name: "github",
           auth_scope: "public_repo",
-          branch: "main",
+          branch: process.env.PUBLIC_BRANCH ?? "main",
           repo: "brunoRoemers/jouer-bouger",
         },
         local_backend: true,
