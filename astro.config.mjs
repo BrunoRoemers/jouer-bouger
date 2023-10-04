@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import decapCMS from "astro-netlify-cms";
 
 // TODO remove
-console.log('branch: ', process.env.PUBLIC_BRANCH)
+console.log(`branch: ${process.env.PUBLIC_BRANCH}`);
 
 // https://astro.build/config
 export default defineConfig({
