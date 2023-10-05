@@ -1,7 +1,3 @@
----
-const branch = process.env.PUBLIC_BRANCH ?? "main";
----
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,13 +11,13 @@ const branch = process.env.PUBLIC_BRANCH ?? "main";
     <script>
       import CMS from "decap-cms-app";
       // TODO test this works
-      console.log("branch", branch);
+      console.log("branch", import.meta.env.PUBLIC_BRANCH);
       const url = new URL(window.location);
       CMS.init({
         // NOTE: merges with /admin/config.yml if it exists
         config: {
           backend: {
-            branch: branch,
+            branch: "main", // TODO
           },
           site_url: url.origin,
         },
