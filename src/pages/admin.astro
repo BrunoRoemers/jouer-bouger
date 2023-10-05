@@ -3,16 +3,19 @@ const branch: string = import.meta.env.PUBLIC_BRANCH ?? "main";
 ---
 
 <!doctype html>
-<html lang="en" class="h-full">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <title>Content Manager - Jouer Bouger</title>
+    <!-- tell Decap CMS which config to load -->
     <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
   </head>
-  <body data-git-branch={branch} class="h-full">
-    <div id="nc-root"></div>
+  <body data-git-branch={branch}>
+    <div id="nc-root">
+      <!-- Decap CMS renders here -->
+    </div>
     <div class="fixed left-3 bottom-3">
       <a
         class="block"
@@ -21,11 +24,27 @@ const branch: string = import.meta.env.PUBLIC_BRANCH ?? "main";
         rel="noopener noreferrer"
       >
         <img
+          id="deploy-status-img"
           src={`https://api.netlify.com/api/v1/badges/1383d8b3-d0aa-4881-b507-1886eb1379b8/deploy-status?branch=${branch}`}
           alt="Netlify Deploy Status"
         />
+        <script>
+          const pollingDelayInMs = 2000;
+          async function updateNetlifyStatusBadge() {
+            // force browser to rerender the image
+            const img = document.getElementById("deploy-status-img");
+            const src = new URL(img.src);
+            src.hash = new Date().getMilliseconds();
+            img.src = src;
+
+            // queue next update
+            setTimeout(updateNetlifyStatusBadge, pollingDelayInMs);
+          }
+          setTimeout(updateNetlifyStatusBadge, pollingDelayInMs);
+        </script>
       </a>
     </div>
+
     <script>
       import CMS from "decap-cms-app";
       const branch = document.body.dataset.gitBranch;
