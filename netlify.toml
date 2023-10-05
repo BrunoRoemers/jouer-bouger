@@ -3,7 +3,6 @@
   command = "npm run build"
 
 [[redirects]]
-  from = "/"
-  to = "https://jouerbouger-manage.systeme.io/yffc"
+  from = "/*"
+  to = "https://jouerbouger-manage.systeme.io/:splat"
   status = 200
-  force = true
