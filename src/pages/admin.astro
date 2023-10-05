@@ -1,5 +1,9 @@
+---
+const branch: string = import.meta.env.PUBLIC_BRANCH ?? "main";
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,10 +11,24 @@
     <title>Content Manager - Jouer Bouger</title>
     <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
   </head>
-  <body>
+  <body data-git-branch={branch} class="h-full">
+    <div id="nc-root"></div>
+    <div class="fixed left-3 bottom-3">
+      <a
+        class="block"
+        href="https://app.netlify.com/sites/jouer-bouger/deploys"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src={`https://api.netlify.com/api/v1/badges/1383d8b3-d0aa-4881-b507-1886eb1379b8/deploy-status?branch=${branch}`}
+          alt="Netlify Deploy Status"
+        />
+      </a>
+    </div>
     <script>
       import CMS from "decap-cms-app";
-      const branch = import.meta.env.PUBLIC_BRANCH ?? "main";
+      const branch = document.body.dataset.gitBranch;
       const url = new URL(window.location);
       CMS.init({
         // NOTE: merges with /admin/config.yml if it exists
