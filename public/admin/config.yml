@@ -1,0 +1,27 @@
+backend:
+  name: "github"
+  auth_scope: "public_repo"
+  # NOTE: branch is set programmatically in admin.astro
+  repo: "brunoRoemers/jouer-bouger"
+media_folder: "src/assets/uploads"
+public_folder: "/assets/uploads"
+local_backend: true
+collections:
+  - name: "cards"
+    label: "Cards"
+    folder: "src/content/cards"
+    format: "yml"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "slug"
+    summary: "{{slug}} - {{title}}"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+      - label: "Video URL"
+        name: "videoUrl"
+        widget: "string"

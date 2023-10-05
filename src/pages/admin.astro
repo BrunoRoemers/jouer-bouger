@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Content Manager - Jouer Bouger</title>
+    <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
+  </head>
+  <body>
+    <script>
+      import CMS from "decap-cms-app";
+      const branch = process.env.PUBLIC_BRANCH ?? "main";
+      // TODO test this works
+      console.log("branch", process.env.PUBLIC_BRANCH);
+      const url = new URL(window.location);
+      CMS.init({
+        // NOTE: merges with /admin/config.yml if it exists
+        config: {
+          backend: {
+            branch: branch,
+          },
+          site_url: url.origin,
+        },
+      });
+    </script>
+  </body>
+</html>

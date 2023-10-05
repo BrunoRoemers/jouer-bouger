@@ -12,7 +12,7 @@
   "dependencies": {
     "@astrojs/tailwind": "^5.0.0",
     "astro": "^3.1.2",
-    "astro-netlify-cms": "^0.5.4",
+    "decap-cms-app": "^3.0.7",
     "tailwindcss": "^3.3.3"
   },
   "prettier": {
