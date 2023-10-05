@@ -22,7 +22,7 @@ collections:
         widget: "string"
       - label: "Slug"
         name: "slug"
-        widget: "string"
+        widget: "slug"
       - label: "Video URL"
         name: "videoUrl"
         widget: "string"

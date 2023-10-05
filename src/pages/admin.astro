@@ -1,5 +1,6 @@
 ---
 import Favicon from "../components/Favicon.astro";
+import ReactPreambleHack from "../components/cms/react-preamble-hack.tsx";
 const branch: string = import.meta.env.PUBLIC_BRANCH ?? "main";
 ---
 
@@ -47,8 +48,10 @@ const branch: string = import.meta.env.PUBLIC_BRANCH ?? "main";
       </a>
     </div>
 
+    <ReactPreambleHack client:only="react" />
     <script>
       import CMS from "decap-cms-app";
+      import SlugControl from "../components/cms/slug-control.tsx";
       const branch = document.body.dataset.gitBranch;
       const url = new URL(window.location);
       CMS.init({
@@ -60,6 +63,7 @@ const branch: string = import.meta.env.PUBLIC_BRANCH ?? "main";
           site_url: url.origin,
         },
       });
+      CMS.registerWidget("slug", SlugControl, null, {});
     </script>
     <style is:global>
       /* Workaround for https://github.com/netlify/netlify-cms/issues/5092 */
