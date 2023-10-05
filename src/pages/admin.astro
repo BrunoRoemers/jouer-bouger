@@ -1,4 +1,5 @@
 ---
+import Favicon from "../components/Favicon.astro";
 const branch: string = import.meta.env.PUBLIC_BRANCH ?? "main";
 ---
 
@@ -11,6 +12,7 @@ const branch: string = import.meta.env.PUBLIC_BRANCH ?? "main";
     <title>Content Manager - Jouer Bouger</title>
     <!-- tell Decap CMS which config to load -->
     <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
+    <Favicon />
   </head>
   <body data-git-branch={branch}>
     <div id="nc-root">
