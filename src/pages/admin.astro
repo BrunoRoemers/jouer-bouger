@@ -22,5 +22,11 @@
         },
       });
     </script>
+    <style is:global>
+      /* Workaround for https://github.com/netlify/netlify-cms/issues/5092 */
+      [data-slate-editor] {
+        -webkit-user-modify: read-write !important;
+      }
+    </style>
   </body>
 </html>
