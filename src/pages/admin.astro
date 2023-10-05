@@ -10,14 +10,13 @@
   <body>
     <script>
       import CMS from "decap-cms-app";
-      // TODO test this works
-      console.log("branch", import.meta.env.PUBLIC_BRANCH);
+      const branch = import.meta.env.PUBLIC_BRANCH ?? "main";
       const url = new URL(window.location);
       CMS.init({
         // NOTE: merges with /admin/config.yml if it exists
         config: {
           backend: {
-            branch: "main", // TODO
+            branch: branch,
           },
           site_url: url.origin,
         },
