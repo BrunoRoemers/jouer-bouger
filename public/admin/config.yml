@@ -14,6 +14,7 @@ collections:
     create: true
     slug: "{{slug}}"
     identifier_field: "slug"
+    preview_path: "/{{filename}}"
     summary: "{{slug}} - {{title}}"
     fields:
       - label: "Title"
