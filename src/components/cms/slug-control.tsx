@@ -22,7 +22,7 @@ const SlugControl = forwardRef<any, WidgetProps>(
         id={forID}
         className={
           !!slug
-            ? "bg-gray-100 cursor-not-allowed " + classNameWrapper
+            ? "!bg-gray-100 cursor-not-allowed " + classNameWrapper
             : classNameWrapper
         }
         onChange={handleChange}
