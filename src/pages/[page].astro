@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import Field from "../components/card/Field.astro";
 
 export async function getStaticPaths() {
   const cards = await getCollection("cards");
@@ -22,8 +23,29 @@ if (card === undefined) {
 
 <Layout title={`Jouer Bouger - ${card.id}`}>
   <main>
+    <!-- TODO use Astro image -->
+    <img
+      class="w-24"
+      src="/public/jouer-bouger-logo.png"
+      alt="Jouer Bouger Logo"
+    />
     <h1>{card.data.title}</h1>
-    <p>hello page {page}</p>
+    <Field label="🌈 Catégorie 🌈" value={card.data.category} />
+    <Field label="👶 Age 👶" value={card.data.age} />
+    <Field label="📏 Lieu et surface 📏" value={card.data.placeAndSurface} />
+    <Field label="⚒️ Matériel ⚒️" value={card.data.materials} />
+    <Field label="⏲️ Durée ⏲️" value={card.data.duration} />
+    <Field label="🎯 But du jeu 🎯" value={card.data.goal} />
+    <Field label="🏆 Pour gagner 🏆" value={card.data.victory} />
+    <Field
+      label="👩‍👦 Variantes à deux 👨‍👧"
+      value={card.data.variationTwoPlayers}
+    />
+    <Field
+      label="👩‍👧‍👦 Variantes à plusieurs jouerus 👨‍👧‍👦"
+      value={card.data.variationManyPlayers}
+    />
+    <!-- TODO render video -->
     <p>video url: {card.data.videoUrl}</p>
   </main>
 </Layout>
