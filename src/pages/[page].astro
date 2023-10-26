@@ -3,6 +3,7 @@ import { getCollection, getEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Field from "../components/card/Field.astro";
 import Logo from "../components/card/Logo.astro";
+import Video from "../components/card/Video.astro";
 
 export async function getStaticPaths() {
   const cards = await getCollection("cards");
@@ -42,8 +43,9 @@ if (card === undefined) {
       label="👩‍👧‍👦 Variantes à plusieurs joueurs 👨‍👧‍👦"
       value={card.data.variationManyPlayers}
     />
-    <!-- TODO render video -->
-    <p>render video here: {card.data.videoUrl}</p>
+    <div class="p-10">
+      <Video url={card.data.videoUrl} />
+    </div>
     <!-- TODO insert Tally contact form -->
   </main>
 </Layout>

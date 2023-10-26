@@ -1,0 +1,18 @@
+---
+interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
+const id = url.split("/").slice(-1);
+---
+
+<div class="relative pt-[56.25%] bg-gray-300">
+  <iframe
+    class="absolute top-0 left-0 w-full h-full"
+    src={`https://www.youtube.com/embed/${id}`}
+    title="Chemin tout tracé"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
