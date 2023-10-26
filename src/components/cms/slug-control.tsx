@@ -6,6 +6,8 @@ const SlugControl = forwardRef<any, WidgetProps>(
   ({ forID, classNameWrapper, onChange, value, entry }, ref) => {
     useImperativeHandle(ref, () => ({
       isValid: () => {
+        // TODO slug not valid if file with this name already exists
+        // TODO detect slugs cf. https://github.com/decaporg/decap-cms/blob/d564aa6f64d6047b67e1d5440b0d31c9f101182b/packages/decap-cms-widget-relation/src/RelationControl.js#L242
         return true;
       },
     }));
