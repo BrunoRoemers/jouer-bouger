@@ -41,7 +41,7 @@ collections:
         required: false
       - label: "Matériel"
         name: "materials"
-        widget: "string"
+        widget: "text"
         required: false
       - label: "Durée"
         name: "duration"
@@ -49,17 +49,17 @@ collections:
         required: false
       - label: "But du Jeu"
         name: "goal"
-        widget: "string"
+        widget: "text"
         required: false
       - label: "Pour Gagner"
         name: "victory"
-        widget: "string"
+        widget: "text"
         required: false
       - label: "Variantes a Deux"
         name: "variationTwoPlayers"
-        widget: "string"
+        widget: "text"
         required: false
       - label: "Variante à Plusieurs Joueurs"
         name: "variationManyPlayers"
-        widget: "string"
+        widget: "text"
         required: false
