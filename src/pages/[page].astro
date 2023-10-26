@@ -2,6 +2,7 @@
 import { getCollection, getEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Field from "../components/card/Field.astro";
+import Logo from "../components/card/Logo.astro";
 
 export async function getStaticPaths() {
   const cards = await getCollection("cards");
@@ -21,16 +22,9 @@ if (card === undefined) {
 }
 ---
 
-<Layout title={`Jouer Bouger - ${card.id}`}>
+<Layout title={`${card.data.title} - ${card.id} - Jouer Bouger`}>
   <main>
-    <!-- TODO use Astro image -->
-    <div class="flex justify-center mt-10 mb-20">
-      <img
-        class="w-24 text-center"
-        src="/public/jouer-bouger-logo.png"
-        alt="Jouer Bouger Logo"
-      />
-    </div>
+    <Logo />
     <!-- TODO font and styles -->
     <h1 class="text-center font-thin text-xl mb-10">{card.data.title}</h1>
     <Field label="🌈 Catégorie 🌈" value={card.data.category} />

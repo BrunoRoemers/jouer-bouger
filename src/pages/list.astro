@@ -1,16 +1,17 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import Logo from "../components/card/Logo.astro";
 
 const cards = await getCollection("cards");
 ---
 
 <Layout title="Jouer Bouger">
-  <h1>Jouer Bouger!</h1>
-  <ul>
+  <Logo />
+  <ul class="text-center">
     {
       cards.map((card) => (
-        <li>
+        <li class="mb-1">
           <a
             class="text-blue-600 hover:text-blue-700 hover:underline"
             href={`/${card.id}`}
