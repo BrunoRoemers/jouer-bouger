@@ -16,10 +16,8 @@ if (page === undefined) {
 
 const card = await getEntry("cards", page);
 if (card === undefined) {
-  throw new Error("could not find card with id TODO");
+  throw new Error(`could not find card with id "${page}"`);
 }
-
-console.log(card);
 ---
 
 <Layout title={`Jouer Bouger - ${card.id}`}>
