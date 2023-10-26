@@ -24,12 +24,15 @@ if (card === undefined) {
 <Layout title={`Jouer Bouger - ${card.id}`}>
   <main>
     <!-- TODO use Astro image -->
-    <img
-      class="w-24"
-      src="/public/jouer-bouger-logo.png"
-      alt="Jouer Bouger Logo"
-    />
-    <h1>{card.data.title}</h1>
+    <div class="flex justify-center mt-10 mb-20">
+      <img
+        class="w-24 text-center"
+        src="/public/jouer-bouger-logo.png"
+        alt="Jouer Bouger Logo"
+      />
+    </div>
+    <!-- TODO font and styles -->
+    <h1 class="text-center font-thin text-xl mb-10">{card.data.title}</h1>
     <Field label="🌈 Catégorie 🌈" value={card.data.category} />
     <Field label="👶 Age 👶" value={card.data.age} />
     <Field label="📏 Lieu et surface 📏" value={card.data.placeAndSurface} />
@@ -42,10 +45,11 @@ if (card === undefined) {
       value={card.data.variationTwoPlayers}
     />
     <Field
-      label="👩‍👧‍👦 Variantes à plusieurs jouerus 👨‍👧‍👦"
+      label="👩‍👧‍👦 Variantes à plusieurs joueurs 👨‍👧‍👦"
       value={card.data.variationManyPlayers}
     />
     <!-- TODO render video -->
-    <p>video url: {card.data.videoUrl}</p>
+    <p>render video here: {card.data.videoUrl}</p>
+    <!-- TODO insert Tally contact form -->
   </main>
 </Layout>
