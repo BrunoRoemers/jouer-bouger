@@ -27,3 +27,39 @@ collections:
       - label: "Video URL"
         name: "videoUrl"
         widget: "string"
+      - label: "Catégorie"
+        name: "category"
+        widget: "string"
+        required: false
+      - label: "Age"
+        name: "age"
+        widget: "string"
+        required: false
+      - label: "Lieu et Surface"
+        name: "placeAndSurface"
+        widget: "string"
+        required: false
+      - label: "Matériel"
+        name: "materials"
+        widget: "string"
+        required: false
+      - label: "Durée"
+        name: "duration"
+        widget: "string"
+        required: false
+      - label: "But du Jeu"
+        name: "goal"
+        widget: "string"
+        required: false
+      - label: "Pour Gagner"
+        name: "victory"
+        widget: "string"
+        required: false
+      - label: "Variantes a Deux"
+        name: "variationTwoPlayers"
+        widget: "string"
+        required: false
+      - label: "Variante à Plusieurs Joueurs"
+        name: "variationManyPlayers"
+        widget: "string"
+        required: false
