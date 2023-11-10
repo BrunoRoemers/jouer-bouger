@@ -20,8 +20,15 @@ interface Props {
 const baseUrl: string =
   import.meta.env.PUBLIC_BASE_URL ?? "https://www.jouerbouger.com";
 
-const { title, description, ogTitle, ogDescription, ogImageAlt, ogVideo } =
-  Astro.props;
+const {
+  title,
+  description,
+  ogTitle,
+  ogDescription,
+  ogType,
+  ogImageAlt,
+  ogVideo,
+} = Astro.props;
 
 const canonicalUrl = resolveUrl(Astro.props.canonicalUrl, baseUrl);
 const ogUrl = resolveUrl(Astro.props.ogUrl, baseUrl);
