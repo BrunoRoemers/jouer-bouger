@@ -13,18 +13,14 @@ export async function getStaticPaths() {
     .map((slug) => ({ params: { card_id: slug } }));
 }
 
-const { card_id } = Astro.params;
-if (card_id === undefined) {
-  throw new Error("card_id param not provided");
-}
-
-const card = await getEntry("cards", card_id);
-if (card === undefined) {
-  throw new Error(`could not find card with id "${card_id}"`);
-}
+const card = await getEntry("cards", Astro.params.card_id);
 ---
 
-<Layout title={`${card.data.title} - ${card.id} - Jouer Bouger`}>
+<Layout
+  title={`${card.data.title} - ${card.id} - Jouer Bouger`}
+  description="TODO"
+  canonicalUrl={`/${card.id}`}
+>
   <main>
     <Logo />
     <h1 class="text-center font-amatic-sc text-3xl md:text-5xl mb-10">

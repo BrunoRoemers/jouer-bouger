@@ -6,7 +6,11 @@ import Logo from "../components/card/Logo.astro";
 const cards = await getCollection("cards");
 ---
 
-<Layout title="Tous les Jeux - Jouer Bouger">
+<Layout
+  title="Tous les Jeux - Jouer Bouger"
+  description="Découvrez tous les jeux de Jouer Bouger. Pour les familles qui veulent moins de sédentarité, plus de complicité!"
+  canonicalUrl="/liste"
+>
   <Logo />
   <h1 class="text-center font-amatic-sc text-3xl md:text-5xl mb-10">
     Tous les Jeux
