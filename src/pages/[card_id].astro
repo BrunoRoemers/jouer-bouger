@@ -9,17 +9,17 @@ export async function getStaticPaths() {
   const cards = await getCollection("cards");
   return cards
     .map((card) => card.id)
-    .map((slug) => ({ params: { page: slug } }));
+    .map((slug) => ({ params: { card_id: slug } }));
 }
 
-const { page } = Astro.params;
-if (page === undefined) {
-  throw new Error("page param not provided");
+const { card_id } = Astro.params;
+if (card_id === undefined) {
+  throw new Error("card_id param not provided");
 }
 
-const card = await getEntry("cards", page);
+const card = await getEntry("cards", card_id);
 if (card === undefined) {
-  throw new Error(`could not find card with id "${page}"`);
+  throw new Error(`could not find card with id "${card_id}"`);
 }
 ---
 
