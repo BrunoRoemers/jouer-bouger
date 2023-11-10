@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["TODO", ...defaultTheme.fontFamily.sans],
+        sans: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
         "amatic-sc": ["Amatic SC", ...defaultTheme.fontFamily.sans],
       },
     },
