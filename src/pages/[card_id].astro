@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import Field from "../components/card/Field.astro";
 import Logo from "../components/card/Logo.astro";
 import Video from "../components/card/Video.astro";
+import TallyForm from "../components/card/TallyForm.astro";
 
 export async function getStaticPaths() {
   const cards = await getCollection("cards");
@@ -47,7 +48,9 @@ if (card === undefined) {
     <div class="overflow-hidden rounded-2xl mb-10">
       <Video url={card.data.videoUrl} />
     </div>
-    <!-- TODO insert Tally contact form -->
+    <div class="mb-10">
+      <TallyForm formId="3jlDO9" title="Contact Form" />
+    </div>
     <div
       class="text-center text-sm md:text-base text-neutral-400 hover:underline"
     >
