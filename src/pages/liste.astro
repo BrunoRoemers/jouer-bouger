@@ -6,8 +6,11 @@ import Logo from "../components/card/Logo.astro";
 const cards = await getCollection("cards");
 ---
 
-<Layout title="Jouer Bouger">
+<Layout title="Tous les Jeux - Jouer Bouger">
   <Logo />
+  <h1 class="text-center font-amatic-sc text-3xl md:text-5xl mb-10">
+    Tous les Jeux
+  </h1>
   <ul class="text-center">
     {
       cards.map((card) => (
