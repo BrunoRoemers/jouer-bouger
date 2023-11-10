@@ -5,6 +5,7 @@ import Field from "../components/card/Field.astro";
 import Logo from "../components/card/Logo.astro";
 import Video from "../components/card/Video.astro";
 import TallyForm from "../components/card/TallyForm.astro";
+import ytThumbnail from "../utils/ytThumbnail";
 import ytUrl from "../utils/ytUrl";
 
 export async function getStaticPaths() {
@@ -28,6 +29,9 @@ const description = card.data.metadata?.description || defaultDescription;
   canonicalUrl={`/${card.id}`}
   ogTitle={card.data.metadata?.ogTitle}
   ogDescription={card.data.metadata?.ogDescription}
+  ogType="video.other"
+  ogImage={ytThumbnail(card.data.videoUrl)}
+  ogImageAlt={title}
   ogVideo={ytUrl(card.data.videoUrl)}
 >
   <main>
