@@ -26,8 +26,9 @@ if (card === undefined) {
 <Layout title={`${card.data.title} - ${card.id} - Jouer Bouger`}>
   <main>
     <Logo />
-    <!-- TODO font and styles -->
-    <h1 class="text-center font-thin text-xl mb-10">{card.data.title}</h1>
+    <h1 class="text-center font-amatic-sc text-3xl md:text-5xl mb-10">
+      {card.data.title}
+    </h1>
     <Field label="🌈 Catégorie 🌈" value={card.data.category} />
     <Field label="👶 Age 👶" value={card.data.age} />
     <Field label="📏 Lieu et surface 📏" value={card.data.placeAndSurface} />
