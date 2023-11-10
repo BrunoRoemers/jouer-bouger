@@ -16,6 +16,8 @@ collections:
     identifier_field: "slug"
     preview_path: "/{{filename}}"
     summary: "{{slug}} - {{title}}"
+    editor:
+      preview: false
     fields:
       - label: "Slug"
         name: "slug"
@@ -63,3 +65,28 @@ collections:
         name: "variationManyPlayers"
         widget: "text"
         required: false
+      - label: "Metadata"
+        name: "metadata"
+        summary: "Change how this card appears on Google, Facebook, Twitter..."
+        widget: "object"
+        fields:
+          - label: Title
+            name: title
+            widget: string
+            required: false
+            hint: "Falls back to: \"<title of card> - <card id> - Jouer Bouger\"."
+          - label: Description
+            name: description
+            widget: string
+            required: false
+            hint: "Falls back to \"Bougez plus avec le jeu '<title of card>' de la collection Jouer Bouger.\""
+          - label: Open Graph Title (Facebook and other social media sites)
+            name: ogTitle
+            widget: string
+            required: false
+            hint: "Falls back to the general title, defined above."
+          - label: Open Graph Description (Facebook and other social media sites)
+            name: ogDescription
+            widget: string
+            required: false
+            hint: "Falls back to the general description, defined above."

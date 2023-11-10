@@ -15,6 +15,14 @@ const cards = defineCollection({
     victory: z.string().optional(),
     variationTwoPlayers: z.string().optional(),
     variationManyPlayers: z.string().optional(),
+    metadata: z
+      .object({
+        title: z.string().optional(),
+        description: z.string().optional(),
+        ogTitle: z.string().optional(),
+        ogDescription: z.string().optional(),
+      })
+      .optional(),
   }),
 });
 

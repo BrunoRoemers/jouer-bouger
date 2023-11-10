@@ -8,12 +8,12 @@ interface Props {
   title: string;
   description: string;
   canonicalUrl: string; // should be a full url, or an absolute path
-  ogTitle?: string; // falls back to title
-  ogDescription?: string; // falls back to description
-  ogUrl?: string; // should be a full url, or an absolute path, falls back to canonicalUrl
-  ogImage?: string; // should be a full url, or an absolute path, falls back to logo of Jouer Bouger
-  ogImageAlt?: string; // falls back to "Jouer Bouger"
-  ogVideo?: string; // hidden if not provided
+  ogTitle?: string | undefined; // falls back to title
+  ogDescription?: string | undefined; // falls back to description
+  ogUrl?: string | undefined; // should be a full url, or an absolute path, falls back to canonicalUrl
+  ogImage?: string | undefined; // should be a full url, or an absolute path, falls back to logo of Jouer Bouger
+  ogImageAlt?: string | undefined; // falls back to "Jouer Bouger"
+  ogVideo?: string | undefined; // hidden if not provided
 }
 
 const baseUrl: string =
@@ -35,18 +35,18 @@ const ogImage = resolveUrl(Astro.props.ogImage, baseUrl);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <!-- required for Open Graph Protocol -->
-    <meta property="og:title" content={ogTitle ?? title} />
+    <meta property="og:title" content={ogTitle || title} />
     <meta property="og:type" content="website" />
     <meta
       property="og:image"
-      content={ogImage ?? resolveUrl("/jouer-bouger-logo.png", baseUrl)}
+      content={ogImage || resolveUrl("/jouer-bouger-logo.png", baseUrl)}
     />
-    <meta property="og:image:alt" content={ogImageAlt ?? "Jouer Bouger"} />
-    <meta property="og:url" content={ogUrl ?? canonicalUrl} />
+    <meta property="og:image:alt" content={ogImageAlt || "Jouer Bouger"} />
+    <meta property="og:url" content={ogUrl || canonicalUrl} />
     <!-- optional for Open Graph Protocol -->
     <meta property="og:site_name" content="Jouer Bouger" />
     <meta property="og:locale" content="fr_BE" />
-    <meta property="og:description" content={ogDescription ?? description} />
+    <meta property="og:description" content={ogDescription || description} />
     {ogVideo && <meta property="og:video" content={ogVideo} />}
     <meta name="viewport" content="width=device-width" />
     <Favicon />

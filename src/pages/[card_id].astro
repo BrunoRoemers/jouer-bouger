@@ -14,12 +14,19 @@ export async function getStaticPaths() {
 }
 
 const card = await getEntry("cards", Astro.params.card_id);
+
+const title =
+  card.data.metadata?.title || `${card.data.title} - ${card.id} - Jouer Bouger`;
+const defaultDescription = `Bougez plus avec le jeu "${card.data.title}" de la collection Jouer Bouger.`;
+const description = card.data.metadata?.description || defaultDescription;
 ---
 
 <Layout
-  title={`${card.data.title} - ${card.id} - Jouer Bouger`}
-  description="TODO"
+  title={title}
+  description={description}
   canonicalUrl={`/${card.id}`}
+  ogTitle={card.data.metadata?.ogTitle}
+  ogDescription={card.data.metadata?.ogDescription}
 >
   <main>
     <Logo />
